@@ -18,7 +18,7 @@
     <!-- Page level plugin CSS-->
     <link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}">
     <!-- Custom styles for this template-->
-    <link rel="stylesheet" href="{{ asset('css/sb-admin.css') }}">
+
     
     <style>
         .navbarcolor{
@@ -94,7 +94,6 @@
     </nav>
     
     <div id="wrapper">
-        
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item">
@@ -131,12 +130,13 @@
                         <!-- Breadcrumbs-->
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Dashboard</a>
+                                <a href="">{{auth()->user()->name}}</a>
                             </li>
-                            <li class="breadcrumb-item active">Tables</li>
+                            <li class="breadcrumb-item active"></li>
                         </ol>
                     
                         @yield('content')  
+                        
         
         <!-- Sticky Footer -->
         <footer class="sticky-footer">

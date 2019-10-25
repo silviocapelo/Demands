@@ -6,6 +6,7 @@
     <div class="card-header tablecolor ">
         <i class="fas fa-table"></i>
         Data Table Example</div>
+        
         <div class=" card-body">
             <div class="table-responsive tablecolor">
                 <table class="table tablecolor table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -17,12 +18,12 @@
                             <th>Descrição</th>
                             <th>Telefone</th>
                             <th>Celular</th>
-                            <th>Celular</th>
                             <th>cidade</th>    
                             <th>Criação</th>
                             <th>Prazo</th>
                             <th>Desfecho</th>
-                            <th>Visualizar</th>
+                            <th>Status</th>
+                            <th>Opção</th>
                         </tr>
                     </thead>
                     <tbody>

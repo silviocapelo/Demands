@@ -133,8 +133,8 @@
                     <!--------->
                     <!--------->
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        <a href="{{route('cadastro')}}"  class="btn btn-info">Voltar</a>
+                        <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+                        <a href="{{route('cadastro')}}"  class="btn btn-outline-info">Voltar</a>
                     </div>
                 </div>
             </div>

@@ -75,14 +75,16 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                <a href="{{route('usuario')}}" class="btn btn-danger">Voltar</a>
+                                <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+                                <a href="{{route('usuario')}}" class="btn btn-outline-info">Voltar</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
+</div>
 </form>
 <div class="card-footer small text-muted"></div>
 </div>

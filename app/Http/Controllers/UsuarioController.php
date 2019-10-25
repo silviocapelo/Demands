@@ -91,7 +91,6 @@ class UsersController extends Controller
           $users->telefone      = $request->telefone;
           $users->status        = $request->status;
           $users->type          = $request->type;
-          $users->password      = $request->password;
           $users->save();
           return redirect()->route('usuario')->with('message', 'Product updated successfully!') ;
   

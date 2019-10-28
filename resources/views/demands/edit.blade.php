@@ -46,7 +46,7 @@
                     </div>
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Solicitante') }}</label>
                             <input id="cnpj" type="text" class="form-control" value="{{$demand->solicitante}}" name="solicitante" placeholder="" required>
@@ -85,7 +85,20 @@
                     </div>    
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                            <input id="email" type="email"  class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{$demand->email}}" placeholder="E-mail" required>
+                            @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>Email já cadastrado</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <!--------->
+                    <!--------->
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Cidade') }}</label>
                             <input id="city" type="text" class="form-control cpf_cnpj" name="cidade" value="{{$demand->cidade}}" placeholder="" required>

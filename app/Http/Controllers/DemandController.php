@@ -47,6 +47,7 @@ class DemandController extends Controller
         if(Auth::user()->type == 'admin'){
             $demands->solicitante       = request('solicitante');
             $demands->cidade            = request('cidade');
+            $demands->email             =request('email');
             $demands->telefone          = request('telefone');
             $demands->celular           = request('celular');
             $demands->user_id           = request('selectemail');
@@ -59,6 +60,7 @@ class DemandController extends Controller
             $demands->user_id           = Auth::user()->id;
             $demands->solicitante       = request('solicitante');
             $demands->cidade            = request('cidade');
+            $demands->email             = request('email');
             $demands->telefone          = request('telefone');
             $demands->celular           = request('celular');
             $demands->description       = request('description');
@@ -100,6 +102,7 @@ class DemandController extends Controller
         $demands->solution_term   = $request->solution_term;
         $demands->solicitante     = $request->solicitante ;
         $demands->cidade          = $request->cidade;
+        $demands->email           = $request->email;
         $demands->telefone        = $request->telefone;
         $demands->celular         = $request->celular;
         if(Auth::user()->type == 'admin'){

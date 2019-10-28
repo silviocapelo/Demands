@@ -1,7 +1,7 @@
 @extends('layouts.class')
 @section('content')
 <form method="POST" action="{{route('usuario.store')}}" class="form-validate">
-    <div class="box-body tablecolor">
+    <div class="box-body ">
         @csrf
         <div class="card mb-4">
             <div class="card-header">   

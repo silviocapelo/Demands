@@ -10,7 +10,6 @@
     <meta name="author" content="">
     
     <title>SB Admin - Tables</title>
-    
 
     <link rel="stylesheet" href="{{ asset('css/sb-admin.css') }}">
     <!-- Custom fonts for this template-->
@@ -22,18 +21,51 @@
     
     <style>
         .navbarcolor{
-             background-color:#3c8dbc;
+             background-color:#0193bc !important;      
+        }
+        /* .form-control,.form-validate,.colorlabel{
+        border-color: #3c8dbc !important;
+        color:#3c8dbc !important;
+        } */
+        /* .tablecolor{
+             color: #3c8dbc !important;
+        } */
+        .breadcrumb{
+            background-color:#2b2e31 !important;
+            font-size: 100%;
+        }
+        .sideba{
+            background-color:#030202 !important;
+            color: white;
+        }
+        .span{
+            color:#3c8dbc;
+        
+        }
+        .colorlabel{
+             label: #3c8dbc !important;
         }
 
-     
-        .tablecolor{
-             color: #3c8dbc;
+       .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 10rem;
+            padding: 0.0rem 0;
+            margin: 0.125rem 0 0;
+            font-size: 1rem;
+            color:white !important;
+            text-align: left;
+            list-style: none;
+            background-color:#2b2e31;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
         }
     }
-
-
-
-
     </style>
 </head>
 
@@ -54,22 +86,33 @@
         </form>
         <!-- Navbar -->
         <ul class="navbar-nav  ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i style="color:white" class="fas fa-user-circle fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    {{-- <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="#">Activity Log</a> --}}
+                    {{-- <div class="dropdown-divider"></div> --}}
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                </div>
+            </li>
             <li class="nav-item dropdown no-arrow mx-1">
                 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-bell fa-fw"></i>
-                    <span class="badge badge-danger">9+</span>
+                    {{-- <i class="fas fa-bell fa-fw"></i> --}}
+                    {{-- <span class="badge badge-danger">9+</span> --}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    {{-- <a class="dropdown-item" href="#">Action</a> --}}
+                    {{-- <a class="dropdown-item" href="#">Another action</a> --}}
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
             <li class="nav-item dropdown no-arrow mx-1">
                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span class="badge badge-danger">7</span>
+                    {{-- <i class="fas fa-envelope fa-fw"></i> --}}
+                    {{-- <span class="badge badge-danger">7</span> --}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
                     <a class="dropdown-item" href="#">Action</a>
@@ -78,62 +121,58 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-circle fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Activity Log</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-                </div>
-            </li>
+           
         </ul>
         
     </nav>
     
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="sidebar navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
+        <ul class="sidebar navbar-nav sideba">
+            
+                   <!-- Breadcrumbs-->
+                   <ol class="breadcrumb">
+                        <li class="breadcrumb-item crumbcolor">
+                            @if(auth()->user()->type == 'admin' )
+                            <span>Admin</span>
+                            <span style="font-size:50%">{{auth()->user()->name}}</span>
+                            @else
+                            <span>Usuário</span>
+                            <span style="font-size:50%">{{auth()->user()->name}}</span>
+                            @endif
+                            {{-- <a href="">{{auth()->user()->type}}</ a> --}}
+                        </li>
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
             </li>
+            @if(auth()->user()->type == 'admin')
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Usuário</span>
+                    <i class="fas fa-fw fa-folder span"></i>
+                    <span style="color:#0193bc">Usuário</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Opção:</h6>
-                <a class="dropdown-item" href="{{route('usuario.create')}}">Cadastrar</a>
-                <a class="dropdown-item" href="{{route('usuario')}}">Visualizar</a>
+                    <h6 class="dropdown-header"></h6>
+                <a class="dropdown-item span " href="{{route('usuario.create')}}">Cadastrar</a>
+                <a class="dropdown-item span" href="{{route('usuario')}}">Visualizar</a>
                 </div>
             </li>
+            @endif
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Franquia</span>
+                    <i class="fas fa-fw fa-folder span"></i>
+                    <span style="color:#0193bc">Demanda</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Opção:</h6>
-                <a class="dropdown-item" href="{{route('cadastro.create')}}">Cadastrar</a>
-                <a class="dropdown-item" href="{{route('cadastro')}}">Visualizar</a>
+                    <h6 class="dropdown-header"></h6>
+                <a class="dropdown-item span" href="{{route('cadastro.create')}}">Cadastrar</a>
+                <a class="dropdown-item span" href="{{route('cadastro')}}">Visualizar</a>
                 </div>
             </li>
                 </ul>
                 <div id="content-wrapper">
                     <div class="container-fluid">
-                        <!-- Breadcrumbs-->
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="">{{auth()->user()->name}}</a>
-                            </li>
-                            <li class="breadcrumb-item active"></li>
-                        </ol>
+                 
                     
                         @yield('content')  
                         
@@ -142,7 +181,7 @@
         <footer class="sticky-footer">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright © Your Website 2019</span>
+                    <span></span>
                 </div>
             </div>
         </footer>
@@ -159,15 +198,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tem certeza que deseja fazer logout?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body"></div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="/logout">Logout</a>
             </div>
         </div>
     </div>
@@ -188,10 +227,12 @@
 <script src="{{asset('js/sb-admin.min.js')}}"></script>
 <!-- Demo scripts for this page-->
 <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
+
+<script src="https://cdn.datatables.net/plug-ins/1.10.20/dataRender/ellipsis.js"></script>
 </body>
 
 
 
-</html>
 
+</html>
 

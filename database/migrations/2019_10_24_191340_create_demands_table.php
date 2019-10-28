@@ -25,6 +25,7 @@ class CreateDemandsTable extends Migration
             $table->string('status');
             $table->string('solicitante');
             $table->string('cidade');
+            $table->string('email');
             $table->string('telefone');
             $table->string('celular');
             $table->timestamps();

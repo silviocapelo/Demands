@@ -19,6 +19,7 @@ class Demand extends Model
         'status',
         'solicitante',
         'cidade',
+        'email',
         'telefone',
         'cidade,'
     ];

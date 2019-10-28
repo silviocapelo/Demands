@@ -9,7 +9,7 @@
         
         <div class=" card-body">
             <div class="table-responsive tablecolor">
-                <table class="table tablecolor table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table tablecolor table-bordered datatable-tauflow" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Código</th>
@@ -18,10 +18,11 @@
                             <th>Descrição</th>
                             <th>Telefone</th>
                             <th>Celular</th>
+                            <th>Email</th> 
                             <th>cidade</th>    
                             <th>Criação</th>
                             <th>Prazo</th>
-                            <th>Desfecho</th>
+                            <th>Via de Solicitação</th>
                             <th>Status</th>
                             <th>Opção</th>
                         </tr>
@@ -35,15 +36,16 @@
                             <td>{{$demand->description}}</td>
                             <td>{{$demand->telefone}}</td>
                             <td>{{$demand->celular}}</td>
+                            <td>{{$demand->email}}</td>
                             <td>{{$demand->cidade}}</td>
+                            <td>{{$demand->created_at->timezone('America/Sao_Paulo')->format('d-m-Y')}}</td>
+                            <td>{{date('d/m/Y', strtotime($demand->solution_term))}}</td>
                             <td>{{$demand->rout_of_request}}</td>
-                            <td>{{$demand->created_at}}</td>
-                            <td>{{$demand->solution_term}}</td>
                             <td>
                                 @if($demand->status == 1 )
                                 <span class="text-success">Aberto</span>
                                 @else
-                                <span class="text-warning">Fechado</span>
+                                <span class="text-danger">Fechado</span>
                                 @endif
                             </td>
                             <td class="options">
@@ -61,6 +63,22 @@
     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM
     </div>
 </div>
+
+
+
+<script>
+    render: function ( data, type, row ) {
+    return data.length > 10 ?
+        data.substr( 0, 10 ) +'…' :
+        data;
+}
+$('#datatable-tauflow').DataTable( {
+    columnDefs: [ {
+        targets: 0,
+        render: $.fn.dataTable.render.ellipsis()
+    } ]
+} );
+        </script>
 
     
     @stop

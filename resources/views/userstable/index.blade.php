@@ -2,12 +2,12 @@
 @section('content')
 <!-- DataTables Example -->
 <div class="card mb-4">
-    <div class="card-header tablecolor">   
+    <div class="card-header ">   
         <i class="fas fa-table"></i>Cadastro Usuário</div>
         <div class="card-body">
             <div class="form-row">
-                <div class="table-responsive tablecolor">
-                    <table class="table tablecolor table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <div class="table-responsive ">
+                    <table class="table  table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -35,7 +35,7 @@
                                     @if($user->status == 1 )
                                     <span class="text-success">Ativo</span>
                                     @else
-                                    <span class="text-warning">Inativo</span>
+                                    <span class="text-danger">Inativo</span>
                                     @endif
                                 </td>
                                 <td class="options">

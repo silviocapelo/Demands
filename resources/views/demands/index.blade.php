@@ -6,6 +6,7 @@
     <div class="card-header tablecolor ">
         <i class="fas fa-table"></i>
         Data Table Example</div>
+        
         <div class=" card-body">
             <div class="table-responsive tablecolor">
                 <table class="table tablecolor table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -13,16 +14,17 @@
                         <tr>
                             <th>Código</th>
                             <th>Solicitante</th>
-                            <th>Atribuido para:</th>
+                            <th>Atribuido:</th>
                             <th>Descrição</th>
                             <th>Telefone</th>
                             <th>Celular</th>
-                            <th>Celular</th>
+                            <th>Email</th> 
                             <th>cidade</th>    
                             <th>Criação</th>
                             <th>Prazo</th>
-                            <th>Desfecho</th>
-                            <th>Visualizar</th>
+                            <th>Via</th>
+                            <th>Status</th>
+                            <th>Opção</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,15 +36,16 @@
                             <td>{{$demand->description}}</td>
                             <td>{{$demand->telefone}}</td>
                             <td>{{$demand->celular}}</td>
+                            <td>{{$demand->email}}</td>
                             <td>{{$demand->cidade}}</td>
+                            <td>{{$demand->created_at->timezone('America/Sao_Paulo')->format('d/m/Y')}}</td>
+                            <td>{{date('d/m/Y', strtotime($demand->solution_term))}}</td>
                             <td>{{$demand->rout_of_request}}</td>
-                            <td>{{$demand->created_at}}</td>
-                            <td>{{$demand->solution_term}}</td>
                             <td>
                                 @if($demand->status == 1 )
                                 <span class="text-success">Aberto</span>
                                 @else
-                                <span class="text-warning">Fechado</span>
+                                <span class="text-danger">Fechado</span>
                                 @endif
                             </td>
                             <td class="options">

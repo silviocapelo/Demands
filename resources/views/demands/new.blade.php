@@ -3,20 +3,25 @@
 @section('content')
 <form action="{{route ('cadastro.store')}}"  method="POST">
     @csrf
-    <div class="card mb-4">
-        <div class="card-header">   
-            <i class="fas fa-table"></i>Cadastro de Franquias</div>
+    <div class="card mb-4 ">
+        <div class="card-header ">   
+            <i class="fas fa-table colorlabel"></i> Cadastro de Franquias</div>
             <div class="card-body">
-                <div class="form-group row">
+                <div class="form-group row colorlabel">
                     <!--------->
                     <!--------->
                     <div class="col-md-4">
-                        <label for="Type" class="col-form-label text-md-right">{{ ('Atribuido para:') }}</label>
+                        <label for="Type" class="col-form-label  text-md-right">{{ ('Atribuido para:') }}</label>
                         <select type="text" name="selectemail" id="name-name" class="form-control name " required><br/> 
-                            <option value="" selected>Selecione</option>
+                            @if(auth()->user()->type == 'admin')  
                             @foreach ($users as $user)
-                            <option value="{{$user->id}}">{{$user->name}}</option>
+                                <option value="" selected>Selecione</option>
+                                <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
+                            @else {
+                                <option value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
+                            }
+                            @endif
                         </select>
                     </div>
                     <!--------->
@@ -37,7 +42,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="resolution" class="col-form-label text-md-right">{{ ('Prazo para resolução') }}</label>
-                            <input id="resolution" type="date" class="form-control" name="solution_term" placeholder="" required>
+                            <input id="resolution" type="date"  class="form-control" name="solution_term" placeholder="" required>
                             @if ($errors->has('solution_term'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('solution_term') }}</strong>
@@ -47,7 +52,7 @@
                     </div>
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Solicitante') }}</label>
                             <input id="cnpj" type="text" class="form-control " name="solicitante" placeholder="" required>
@@ -87,7 +92,20 @@
                     </div>     
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="" placeholder="E-mail" required>
+                            @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>Email já cadastrado</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <!--------->
+                    <!--------->
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="cit" class="col-form-label text-md-right">{{ __('Cidade') }}</label>
                             <input id="city" type="text" class="form-control cpf_cnpj" name="cidade" placeholder="" required>
@@ -133,8 +151,8 @@
                     <!--------->
                     <!--------->
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        <a href="{{route('cadastro')}}"  class="btn btn-info">Voltar</a>
+                        <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+                        <a href="{{route('cadastro')}}"  class="btn btn-outline-info">Voltar</a>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
             <i class="fas fa-table"></i>Cadastro de Franquias</div>
             <div class="card-body">
                 <div class="form-group row">
-                <!--------->
+                    <!--------->
                     <!--------->
                     <div class="col-md-4">
                         <label for="Type" class="col-form-label text-md-right">{{ ('Atribuido para:') }}</label>
@@ -46,7 +46,7 @@
                     </div>
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Solicitante') }}</label>
                             <input id="cnpj" type="text" class="form-control" value="{{$demand->solicitante}}" name="solicitante" placeholder="" required>
@@ -62,7 +62,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="teledone" class="col-form-label text-md-right">{{ __('Telefone') }}</label>
-                            <input id="impitTelefone" type="text" name="telefone" value="{{$demand->telefone}}  data-mask="(00)00000-0000" maxlength="14" class="form-control">
+                            <input id="impitTelefone" type="text" name="telefone" value="{{$demand->telefone}} "data-mask="(00)00000-0000" maxlength="14" class="form-control">
                             @if ($errors->has('telefone'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('telefone') }}</strong>
@@ -85,7 +85,20 @@
                     </div>    
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                            <input id="email" type="email"  class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{$demand->email}}" placeholder="E-mail" required>
+                            @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>Email já cadastrado</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <!--------->
+                    <!--------->
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Cidade') }}</label>
                             <input id="city" type="text" class="form-control cpf_cnpj" name="cidade" value="{{$demand->cidade}}" placeholder="" required>
@@ -126,21 +139,22 @@
                             <span id="cont">2500</span> Restantes <br>
                         </div>
                     </div>
-                    @if ($demand->status == '1')
+                    @if ($demand->status == '0' && auth()->user()->type == 'user')
+
+                    @else
                     <div class="col-md-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Atualizar</button>
-                            <a href="{{route('cadastro')}}" class="btn btn-info">Voltar</a>
-                            @else
+                            <button type="submit" class="btn btn-outline-primary">Atualizar</button>
+                            <a href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
                             @endif
                             
                             @if(auth()->user()->type == 'admin')
-                            <div class="btn" data-toggle="buttons"> <!--Ativar e inativar-->
-                                <label class="btn btn-success {{ $demand->status == 1 ? 'active' : ''}}">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-outline-success {{ $demand->status == 1 ? 'active' : ''}}">
                                     <input type="radio" name="status" value="1"
                                     autocomplete="off" {{$demand->status == 1 ? 'checked' : ''}}> Aberto
                                 </label>
-                                <label class="btn btn-danger {{$demand->status == 0 ? 'active' : ''}}">
+                                <label class="btn btn-outline-danger {{$demand->status == 0 ? 'active' : ''}}">
                                     <input type="radio" name="status" value="0"
                                     autocomplete="off" {{$demand->status == 0 ? 'checked' : ''}}> Fechado
                                 </label>

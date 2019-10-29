@@ -43,13 +43,18 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="Type" class="col-form-label text-md-right">{{ __('Tipo') }}</label>
-                        <select name="type"  id="type" class=" form-control select2" required><br />
-                            <option value="{{$users->type}}" selected>Selecione um Tipo</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Usuário</option>
+                        <select name="type"  id="type" class=" form-control select2" required>
+                            @if($users->type == 'admin')
+                            <option value="admin" selected>Admin</option>
+                            <option value="user">Usuário</option>
+                            @elseif($users->type == 'user')
+                            <option value="user" selected>Usuário</option>
+                            <option value="admin">Admin</option>
+                            @else
+                            @endif
                         </select>
                         @if ($errors->has('type'))
                         <span class="invalid-feedback" role="alert">

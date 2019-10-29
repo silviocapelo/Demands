@@ -12,7 +12,7 @@ class UsersController extends Controller
 {
     public function index(User $users,Demand $demand){
         
-        if(Auth::user()->type == 'admin'){
+         if(Auth::user()->type == 'admin'){
             $users = DB::table('users')->get();
          
             return view('userstable.index',compact('users'));
@@ -25,15 +25,13 @@ class UsersController extends Controller
       
           }
 
-     
-      
      }
   
      //-----------Visualizar-tela de cadastro-------------
   
       public function create(Demand $demand)
       {
-        
+            
             if(Auth::user()->type == 'admin'){
                 
                 return view('userstable.new');
@@ -55,6 +53,7 @@ class UsersController extends Controller
          $request->validate([
          'email' => 'required|unique:users',
          ]);
+
         if(Auth::user()->type == 'admin'){
             $users = new User();
             $users->name       = request('name');
@@ -76,7 +75,7 @@ class UsersController extends Controller
      public function edit($id)
      {
          $users = User::find($id);
-         //dd($users);
+        //  dd($users);
          return view('userstable.edit', compact('users'));
      }
   
@@ -89,7 +88,9 @@ class UsersController extends Controller
           $users->name          = $request->name;
           $users->email         = $request->email;
           $users->telefone      = $request->telefone;
-          $users->status        = $request->status;
+          if($id != auth()->user()->id){
+            $users->status        = $request->status;
+          }
           $users->type          = $request->type;
           $users->save();
           return redirect()->route('usuario')->with('message', 'Product updated successfully!') ;

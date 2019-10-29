@@ -13,10 +13,15 @@
                     <div class="col-md-4">
                         <label for="Type" class="col-form-label  text-md-right">{{ ('Atribuido para:') }}</label>
                         <select type="text" name="selectemail" id="name-name" class="form-control name " required><br/> 
-                            <option value="" selected>Selecione</option>
+                            @if(auth()->user()->type == 'admin')  
                             @foreach ($users as $user)
-                            <option value="{{$user->id}}">{{$user->name}}</option>
+                                <option value="" selected>Selecione</option>
+                                <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
+                            @else {
+                                <option value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
+                            }
+                            @endif
                         </select>
                     </div>
                     <!--------->

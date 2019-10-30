@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('cadastro');
 });
+
+Route::get('/home', function () {
+    return redirect()->route('cadastro');
+ });
 
 Route::get('/logout', function()
 {

@@ -14,7 +14,7 @@ class UsersController extends Controller
         
          if(Auth::user()->type == 'admin'){
             $users = DB::table('users')->get();
-         
+            
             return view('userstable.index',compact('users'));
       
           }elseif(Auth::user()->type == 'user'){

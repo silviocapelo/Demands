@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="form-row">
                 <div class="table-responsive ">
-                    <table class="table  table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table id="example"  class="table table-bordered table-hover datatable" style="width:100% " >
                         <thead>
                             <tr>
                                 <th>Nome</th>

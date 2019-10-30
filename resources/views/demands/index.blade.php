@@ -9,17 +9,17 @@
         
         <div class=" card-body">
             <div class="table-responsive tablecolor">
-                <table class="table tablecolor table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table id="example"  class="table table-bordered table-hover datatable" style="width:100% " >
                     <thead>
                         <tr>
                             <th>Código</th>
+                            <th>Descrição</th>
                             <th>Solicitante</th>
                             <th>Atribuido:</th>
-                            <th>Descrição</th>
                             <th>Telefone</th>
                             <th>Celular</th>
                             <th>Email</th> 
-                            <th>cidade</th>    
+                            <th>Cidade</th>    
                             <th>Criação</th>
                             <th>Prazo</th>
                             <th>Via</th>
@@ -31,9 +31,9 @@
                         @foreach ($demands as $demand)
                         <tr>
                             <td>{{$demand->id}}</td>
+                            <td>{{$demand->description}}</td>
                             <td>{{$demand->solicitante}}</td>
                             <td>{{$demand->user->name}}</td>
-                            <td>{{$demand->description}}</td>
                             <td>{{$demand->telefone}}</td>
                             <td>{{$demand->celular}}</td>
                             <td>{{$demand->email}}</td>

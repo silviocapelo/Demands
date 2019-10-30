@@ -10,12 +10,37 @@
     <meta name="author" content="">
     
     <title>SB Admin - Tables</title>
-    
+
+    <!-- Datatable-->
+    <!-- Datatable-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.0/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.0/js/buttons.colVis.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.0/css/buttons.dataTables.min.css">
+
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/dataRender/ellipsis.js"></script>
+
+     <!-- Fim Datatable-->
+     <!-- Fim Datatable-->
+
+
     <link rel="stylesheet" href="{{ asset('css/sb-admin.css') }}">
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     <!-- Page level plugin CSS-->
-    <link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}">
+ 
     <!-- Custom styles for this template-->
     
     
@@ -192,6 +217,75 @@
 <script src="{{asset('js/sb-admin.min.js')}}"></script>
 <!-- Demo scripts for this page-->
 <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
+
+
+<script>
+    jQuery.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
+        var esc = function ( t ) {
+            return t
+                .replace( /&/g, '&amp;' )
+                .replace( /</g, '&lt;' )
+                .replace( />/g, '&gt;' )
+                .replace( /"/g, '&quot;' );
+        };
+        
+        return function ( d, type, row ) {
+            // Order, search and type get the original data
+            if ( type !== 'display' ) {
+                return d;
+            }
+    
+            if ( typeof d !== 'number' && typeof d !== 'string' ) {
+                return d;
+            }
+    
+            d = d.toString(); // cast numbers
+    
+            if ( d.length <= cutoff ) {
+                return d;
+            }
+    
+            var shortened = d.substr(0, cutoff-1);
+
+            // Find the last white space character in the string
+            if ( wordbreak ) {
+                shortened = shortened.replace(/\s([^\s]*)$/, '');
+            }
+    
+            // Protect against uncontrolled HTML input
+            if ( escapeHtml ) {
+                shortened = esc( shortened );
+            }
+    
+            return '<span class="ellipsis" title="'+esc(d)+'">'+shortened+'&#8230;</span>';
+        };
+    };
+
+
+    $(document).ready( function () {
+        $('.datatable').DataTable({
+            scroller:true,
+            scrollX:true,
+            stateSave:true,
+            "language":{
+                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+            },
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                extend:'colvis',
+                text:'Colunas'
+                }
+            ],
+            columnDefs: [
+                {
+                    targets: [1],
+                    render: $.fn.dataTable.render.ellipsis( 10 )
+                }
+            ],
+        });
+    });
+</script>    
         
 </body>
 </html>

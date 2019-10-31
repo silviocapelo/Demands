@@ -6,13 +6,14 @@ use App\Models\Demand;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Auth;
 
 class DemandController extends Controller
 {
     public function index(User $users ,Demand $demand){
-
+        
         //---Validação para níveis de usúarios --------------
         if(Auth::user()->type == 'admin'){
             $demands = $demand->all();

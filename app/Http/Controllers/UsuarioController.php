@@ -13,7 +13,8 @@ class UsersController extends Controller
     public function index(User $users,Demand $demand){
         
          if(Auth::user()->type == 'admin'){
-            $users = DB::table('users')->get();
+           $email = Auth::user()->email;
+           $users = DB::table('users')->where('email', '!=', $email)->get();
             
             return view('userstable.index',compact('users'));
       

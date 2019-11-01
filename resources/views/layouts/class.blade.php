@@ -57,12 +57,15 @@
             background-color:white !important;
         }
         
+<<<<<<< HEAD
 
 
 .tree li .options {
     margin-left: 10px;
 }
         
+=======
+>>>>>>> develop
         .dropdown-menu {
             position: absolute;
             top: 115%;
@@ -114,6 +117,7 @@
             <!-- Sidebar -->
             <ul class="sidebar navbar-nav sideba">
                 <!-- Breadcrumbs-->
+<<<<<<< HEAD
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item crumbcolor">
                         @if(auth()->user()->type == 'admin' )
@@ -126,6 +130,14 @@
                         {{-- <a href="">{{auth()->user()->type}}</ a> --}}
                         </li>
                         <li class="breadcrumb-item active"></li>
+=======
+                <ol style="font-size:15px" class=" breadcrumb">
+                    @if(auth()->user()->type=='admin')
+                       <span style="color:white">Admin</span>
+                    @else
+                       <span style="color:white">Usuário</span>
+                     @endif
+>>>>>>> develop
                     </ol>
                 </li>
                 @if(auth()->user()->type == 'admin')
@@ -191,10 +203,16 @@
                 </div>
             </div>
             <!-- telefone mask-->
+<<<<<<< HEAD
             <!-- Bootstrap core JavaScript-->
             <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
             <script src="{{asset('js/jsmask/jquery.mask.js')}}"></script>
             
+=======
+            <script src="{{asset('js/jsmask/jquery.mask.js')}}"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+>>>>>>> develop
             <!-- Core plugin JavaScript-->
             <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
             <!-- Page level plugin JavaScript-->

@@ -145,6 +145,10 @@
                     </div>
                     @if ($demand->status == '0' && auth()->user()->type == 'user')
 
+     
+                    <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
+                   
+
                     @else
                     <div class="col-md-12">
                         <div class="form-group">

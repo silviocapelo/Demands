@@ -9,7 +9,7 @@
         
         <div class=" card-body">
             <div class="table-responsive tablecolor">
-                <table id="example"  class="table table-bordered table-hover datatable" style="width:100% " >
+                <table id="example"  class="table table-bordered table-hover datatable">
                     <thead>
                         <tr>
                             <th>Código</th>
@@ -24,7 +24,7 @@
                             <th>Prazo</th>
                             <th>Via</th>
                             <th>Status</th>
-                            <th>Opção</th>
+                            <th>Visualizar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,8 +49,9 @@
                                 @endif
                             </td>
                             <td class="options">
+                                <div align="center">
                                 <a href="{{ route('cadastro.edit',['id'=>$demand->id]) }}">
-                                    <em class="fa fa-fw fa-eye"></em> Visualizar</a>
+                                    <em class="fa fa-fw fa-eye"></em></a></div>
                                 </td>
                             </tr>
                             @endforeach
@@ -60,7 +61,6 @@
             </div>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM
     </div>
 </div>
 

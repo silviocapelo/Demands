@@ -14,7 +14,11 @@
                         <select type="text" name="selectemail" id="name-name" class="form-control name " required><br/> 
                             <option value="">Selecione</option>
                             @foreach ($users as $user)
-                            <option value="{{$user->id}}" selected>{{$user->name}}</option>
+                                @if($demand->user_id == $user->id)
+                                    <option value="{{$user->id}}" selected>{{$user->name}}</option>
+                                @else
+                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>

@@ -57,6 +57,12 @@
             background-color:white !important;
         }
         
+
+
+.tree li .options {
+    margin-left: 10px;
+}
+        
         .dropdown-menu {
             position: absolute;
             top: 115%;
@@ -185,9 +191,10 @@
                 </div>
             </div>
             <!-- telefone mask-->
-            <script src="{{asset('js/jsmask/jquery.mask.js')}}"></script>
             <!-- Bootstrap core JavaScript-->
             <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+            <script src="{{asset('js/jsmask/jquery.mask.js')}}"></script>
+            
             <!-- Core plugin JavaScript-->
             <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
             <!-- Page level plugin JavaScript-->

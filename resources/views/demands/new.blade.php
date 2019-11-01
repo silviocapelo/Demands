@@ -14,8 +14,8 @@
                         <label for="Type" class="col-form-label  text-md-right">{{ ('Atribuido para:') }}</label>
                         <select type="text" name="selectemail" id="name-name" class="form-control name " required><br/> 
                             @if(auth()->user()->type == 'admin')  
+                            <option value="" selected>Selecione</option>
                             @foreach ($users as $user)
-                                <option value="" selected>Selecione</option>
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
                             @else {
@@ -69,7 +69,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="teledone" class="col-form-label text-md-right">{{ __('Telefone') }}</label>
-                            <input id="impitTelefone" type="text" name="telefone"  data-mask="(00)00000-0000" maxlength="14" class="form-control">
+                            <input id="impitTelefone" type="text" name="telefone"  data-mask="(00)0000-0000" maxlength="14" class="form-control">
                             @if ($errors->has('telefone'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('telefone') }}</strong>

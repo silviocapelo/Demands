@@ -35,7 +35,6 @@ Route::get('/users', function() {
 
 Route::middleware('auth')->group(function () {
     
-    
     //--Rotas de Cadastro de demandas------------------------------------------------------------
     Route::get('/cadastro', 'DemandController@index')->name('cadastro');
     Route::post('/cadastro/store', 'DemandController@store')->name('cadastro.store');

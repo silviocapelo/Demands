@@ -1,10 +1,11 @@
 @extends('layouts.class')
 @section('content')
-<form action="{{route('cadastro.update', $demand->id)}}"method="POST">
-    @csrf
-    <div class="card mb-4">
-        <div class="card-header">   
-            <i class="fas fa-table"></i>Cadastro de Franquias</div>
+    <form action="{{route('cadastro.update', $demand->id)}}"method="POST">
+        @csrf
+        <div class="card mb-4">
+            <div class="card-header">   
+                <i class="fas fa-table"></i> Cadastro de Franquias
+            </div>
             <div class="card-body">
                 <div class="form-group row">
                     <!--------->
@@ -123,8 +124,8 @@
                                 }
                             </style>
                             <label for="texto" class="col-form-label text-md-right">{{ __('Descrição da solicitação') }}</label>
-                            <textarea name=description class="form-control foo" onkeyup="limite_textarea(this.value)" id="texto" maxlength="2500" required>{{$demand->description}}</textarea>
-                            <span id="cont">2500</span> Restantes <br>
+                            <textarea name=description class="form-control foo" onkeyup="limite_textarea(this.value)" id="textarea" maxlength="2500" required>{{$demand->description}}</textarea>
+                            <span id="count">2500</span> Restantes <br>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -139,42 +140,48 @@
                                 }
                             </style>
                             <label for="texto" class="col-form-label text-md-right">{{ __('Desfecho da demanda') }}</label>
-                            <textarea name=outcome  class="form-control foo" onkeyup="limite_textarea(this.value)" id="texto" maxlength="2500">{{$demand->outcome}}</textarea>
-                            <span id="cont">2500</span> Restantes <br>
+                            <textarea name=outcome  class="form-control foo" onkeyup="limite_textarea(this.value)" id="textarea1" maxlength="2500">{{$demand->outcome}}</textarea>
+                            <span id="count1">2500</span> Restantes <br>
                         </div>
                     </div>
                     @if ($demand->status == '0' && auth()->user()->type == 'user')
 
-     
-                    <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
-                   
+                        <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>                   
 
                     @else
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-outline-primary">Atualizar</button>
-                            <a href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
-                            @endif
-                            
-                            @if(auth()->user()->type == 'admin')
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-outline-success {{ $demand->status == 1 ? 'active' : ''}}">
-                                    <input type="radio" name="status" value="1"
-                                    autocomplete="off" {{$demand->status == 1 ? 'checked' : ''}}> Aberto
-                                </label>
-                                <label class="btn btn-outline-danger {{$demand->status == 0 ? 'active' : ''}}">
-                                    <input type="radio" name="status" value="0"
-                                    autocomplete="off" {{$demand->status == 0 ? 'checked' : ''}}> Fechado
-                                </label>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-outline-primary">Atualizar</button>
+                                <a href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
                             </div>
-                            @endif
                         </div>
-                    </div>
+                    @endif
+                    @if(auth()->user()->type == 'admin')
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-success {{ $demand->status == 1 ? 'active' : ''}}">
+                                <input type="radio" name="status" value="1"
+                                autocomplete="off" {{$demand->status == 1 ? 'checked' : ''}}> Aberto
+                            </label>
+                            <label class="btn btn-outline-danger {{$demand->status == 0 ? 'active' : ''}}">
+                                <input type="radio" name="status" value="0"
+                                autocomplete="off" {{$demand->status == 0 ? 'checked' : ''}}> Fechado
+                            </label>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
-    </div>
-</form>
-<div class="card-footer small text-muted"></div>
-</div>
+    </form>
+    <script>
+        document.getElementById('textarea').onkeyup = function () {
+
+            document.getElementById('count').innerHTML = "" + (2500 - this.value.length);
+
+        };
+        document.getElementById('textarea1').onkeyup = function () {
+            
+            document.getElementById('count1').innerHTML = "" + (2500 - this.value.length);
+
+        };
+    </script>
 @stop

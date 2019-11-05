@@ -1,11 +1,12 @@
 @extends('layouts.class')
 @section('content')
-<form method="POST" action="{{route('usuario.store')}}" class="form-validate">
-    <div class="box-body ">
-        @csrf
-        <div class="card mb-4">
-            <div class="card-header">   
-                <i class="fas fa-table"></i> Cadastro Usuário</div>
+    <form method="POST" action="{{route('usuario.store')}}" class="form-validate">
+        <div class="box-body ">
+            @csrf
+            <div class="card mb-4">
+                <div class="card-header">   
+                    <i class="fas fa-table"></i> Cadastro Usuário
+                </div>
                 <div class="card-body ">
                     <div class="form-row ">
                         <div class="col-md-3">
@@ -19,8 +20,7 @@
                                 @endif
                             </div>
                         </div>
-                        <!--------->
-                        <!--------->
+
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="teledone" class="col-form-label text-md-right">{{ __('Celular') }}</label>
@@ -32,8 +32,7 @@
                                 @endif
                             </div>
                         </div>
-                        <!--------->
-                        <!--------->
+
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
@@ -45,8 +44,7 @@
                                 @endif
                             </div>
                         </div>
-                        <!--------->
-                        <!--------->
+
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="Type" class="col-form-label text-md-right">{{ __('Tipo') }}</label>
@@ -73,6 +71,7 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
@@ -83,9 +82,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</form>
-<div class="card-footer small text-muted"></div>
-</div>
+    </form>
 @stop

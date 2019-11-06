@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/tckmkiwq/public_html/Demands/
+    - /bin/cp * $DEPLOYPATH
+ 
+ 

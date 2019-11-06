@@ -1,7 +1,6 @@
----
 deployment:
-  tasks:
-    - export DEPLOYPATH=/home/tckmkiwq/public_html/Demands/
-    - /bin/cp * $DEPLOYPATH
- 
+tasks:
+- export DEPLOYPATH=/home4/tckmkiwq/repositories/Demands 
+- /bin/cp home.html $DEPLOYPATH
+- /bin/cp style.css $DEPLOYPATH
  

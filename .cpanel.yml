@@ -1,6 +1,4 @@
----<font></font>
-deployment:<font></font>
-  tasks:<font></font>
-    - export DEPLOYPATH=/home/user/public_html/<font></font>
-    - /bin/cp index.html $DEPLOYPATH<font></font>
-    - /bin/cp style.css $DEPLOYPATH
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/<user_name>/public_html #Add /<sub_folder> if required
+    - /bin/cp -r * $DEPLOYPATH

@@ -72,7 +72,7 @@
     <body id="page-top">  
         <nav class="navbar navbar-expand  navbarcolor static-top">
             
-            <a style="color:white" class="navbar-brand mr-1" href="index.html">Sistema Governamental</a>
+            <a style="color:white" class="navbar-brand mr-1" href="index.html">Gestão Brasil OnLine</a>
             
             <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
                 <i class="fas fa-bars"></i>
@@ -103,7 +103,7 @@
             @if(auth()->user()->type == 'admin')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-fw fa-folder span"></i>
+                        <i class="fas fa-fw fa-users span"></i>
                         <span style="color:#0193bc">Usuário</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">

@@ -97,11 +97,12 @@ class DemandController extends Controller
     public function update(Request $request, $id)
     {
         $demands = Demand::findOrFail($id);
-        // return $demands;
+   
         if(Auth::user()->type == 'admin'){
-            $demands->user_id     = $request->post('selectemail');    
-            $demands->description = $request->description;
-            $demands->status      = $request->status;
+
+        $demands->user_id     = $request->post('selectemail');    
+        $demands->description = $request->description;
+        $demands->status          = $request->status;
         }
         $demands->outcome         = $request->outcome;
         $demands->rout_of_request = $request->rout_of_request;
@@ -112,6 +113,7 @@ class DemandController extends Controller
         $demands->telefone        = $request->telefone;
         $demands->celular         = $request->celular;
         $demands->save();
+
         return redirect()->route('cadastro')->with('message', 'Product updated successfully!') ;
 
     

@@ -4,7 +4,7 @@
         @csrf
         <div class="card mb-4">
             <div class="card-header">   
-                <i class="fas fa-table"></i> Cadastro de Franquias
+                <i class="fas fa-table"></i> Editar
             </div>
             <div class="card-body">
                 <div class="form-group row">
@@ -144,30 +144,28 @@
                             <span id="count1">2500</span> Restantes <br>
                         </div>
                     </div>
-                    @if ($demand->status == '0' && auth()->user()->type == 'user')
-
-                        <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>                   
-
-                    @else
-                        <div class="col-md-12">
-                            <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="form-group"> 
+                            @if ($demand->status == '0' && auth()->user()->type == 'user')
+                                <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>                   
+                            @else
                                 <button type="submit" class="btn btn-outline-primary">Atualizar</button>
                                 <a href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
-                            </div>
+                            @endif
+                            @if(auth()->user()->type == 'admin')
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-outline-success {{ $demand->status == 1 ? 'active' : ''}}">
+                                        <input type="radio" name="status" value="1"
+                                        autocomplete="off" {{$demand->status == 1 ? 'checked' : ''}}> Aberto
+                                    </label>
+                                    <label class="btn btn-outline-danger {{$demand->status == 0 ? 'active' : ''}}">
+                                        <input type="radio" name="status" value="0"
+                                        autocomplete="off" {{$demand->status == 0 ? 'checked' : ''}}> Fechado
+                                    </label>
+                                </div>
+                             @endif
                         </div>
-                    @endif
-                    @if(auth()->user()->type == 'admin')
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-success {{ $demand->status == 1 ? 'active' : ''}}">
-                                <input type="radio" name="status" value="1"
-                                autocomplete="off" {{$demand->status == 1 ? 'checked' : ''}}> Aberto
-                            </label>
-                            <label class="btn btn-outline-danger {{$demand->status == 0 ? 'active' : ''}}">
-                                <input type="radio" name="status" value="0"
-                                autocomplete="off" {{$demand->status == 0 ? 'checked' : ''}}> Fechado
-                            </label>
-                        </div>
-                    @endif
+                    </div>
                 </div>
             </div>
         </div>

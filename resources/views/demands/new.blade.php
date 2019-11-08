@@ -5,7 +5,7 @@
     @csrf
     <div class="card mb-4 ">
         <div class="card-header ">   
-            <i class="fas fa-table colorlabel"></i> Cadastro de Franquias</div>
+            <i class="fas fa-table colorlabel"></i> Cadastrar</div>
             <div class="card-body">
                 <div class="form-group row colorlabel">
                     <!--------->

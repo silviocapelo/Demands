@@ -5,7 +5,7 @@
             @csrf
             <div class="card mb-4">
                 <div class="card-header">   
-                    <i class="fas fa-table"></i> Cadastro Usuário
+                    <i class="fas fa-table"></i> Cadastrar
                 </div>
                 <div class="card-body ">
                     <div class="form-row ">

@@ -7,7 +7,7 @@
 @section('body')
 <div class="login-box">
     <div class="login-logo">
-        <a href="">GS Brasil</a>
+        <a href="">Gestão Brasil OnLine</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

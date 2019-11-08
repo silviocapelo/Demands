@@ -20,7 +20,7 @@
                             <th>Cidade</th>    
                             <th>Criação</th>
                             <th>Prazo</th>
-                            <th>Via</th>
+                            <th>Via/Solicitação</th>
                             <th>Status</th>
                             <th>Visualizar</th>
                         </tr>
@@ -41,9 +41,9 @@
                                 <td>{{$demand->rout_of_request}}</td>
                                 <td>
                                     @if($demand->status == 1 )
-                                    <span class="text-success">Aberto</span>
+                                        <span class="text-success">Aberto</span>
                                     @else
-                                    <span class="text-danger">Fechado</span>
+                                        <span class="text-danger">Fechado</span>   
                                     @endif
                                 </td>
                                 <td class="options">

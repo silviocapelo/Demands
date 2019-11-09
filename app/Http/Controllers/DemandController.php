@@ -46,9 +46,10 @@ class DemandController extends Controller
        
         $demands = new Demand();
         if(Auth::user()->type == 'admin'){
+            $demands->demand_id         = request('demand_id');
             $demands->solicitante       = request('solicitante');
             $demands->cidade            = request('cidade');
-            $demands->email             =request('email');
+            $demands->email             = request('email');
             $demands->telefone          = request('telefone');
             $demands->celular           = request('celular');
             $demands->user_id           = request('selectemail');
@@ -59,6 +60,7 @@ class DemandController extends Controller
             $demands->status = 1;
         }else{
             $demands->user_id           = Auth::user()->id;
+            $demands->demand_id         = request('demand_id');
             $demands->solicitante       = request('solicitante');
             $demands->cidade            = request('cidade');
             $demands->email             = request('email');
@@ -104,6 +106,7 @@ class DemandController extends Controller
         $demands->description = $request->description;
         $demands->status          = $request->status;
         }
+        $demands->demand_id       = $request->demand_id;
         $demands->outcome         = $request->outcome;
         $demands->rout_of_request = $request->rout_of_request;
         $demands->solution_term   = $request->solution_term;
@@ -116,9 +119,30 @@ class DemandController extends Controller
 
         return redirect()->route('cadastro')->with('message', 'Product updated successfully!') ;
 
-    
-
 }
+     
+     
+        //-----------Envio de Email---------------------------------------------------------------------
+
+    //    public function sendEmail(){
+
+    //     Mail::send('mails.emailDemands',['curso'=>'Eloquent'],function($m, Demand $id){
+           
+    //         $demands = Demand::findOrFail($id);
+              
+    //         $m->from('gestao2019brasil@gmail.com','ADM');
+    //         $m->to('silvio.silva51@gmail.com');
+
+    //         return Redirect::to('/cadastro');
+
+
+    //     });
+
+    //     }
+
+
+
+
 
 
 }

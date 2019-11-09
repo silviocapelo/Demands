@@ -22,6 +22,7 @@ class CreateDemandsTable extends Migration
             $table->longText('outcome')->nullable();
             $table->string('rout_of_request');
             $table->date('solution_term')->nullable();
+            $table->string('demand_id');
             $table->string('status');
             $table->string('solicitante');
             $table->string('cidade');

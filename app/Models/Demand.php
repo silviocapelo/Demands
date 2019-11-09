@@ -16,6 +16,7 @@ class Demand extends Model
         'email',
         'solution_term',
         'name',
+        'demand_id',
         'status',
         'solicitante',
         'cidade',

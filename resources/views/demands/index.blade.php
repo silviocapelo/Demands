@@ -3,7 +3,7 @@
 <!-- DataTables Example -->
     <div class="card mb-3 tablecolor">
     <div class="card-header tablecolor ">
-        <i class="fas fa-table"></i> Data Table Example
+        <i class="fas fa-table"></i> Demandas
     </div>
         <div class=" card-body">
             <div class="table-responsive tablecolor">
@@ -28,7 +28,7 @@
                     <tbody>
                         @foreach ($demands as $demand)
                             <tr>
-                                <td>{{$demand->id}}</td>
+                                <td>{{$demand->demand_id}}</td>
                                 <td>{{$demand->description}}</td>
                                 <td>{{$demand->solicitante}}</td>
                                 <td>{{$demand->user->name}}</td>

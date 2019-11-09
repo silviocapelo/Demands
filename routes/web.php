@@ -33,6 +33,9 @@ Route::get('/users', function() {
 })->name('user')->middleware('auth');
 
 
+
+//------------------------------------------------------------------------------------------------
+
 Route::middleware('auth')->group(function () {
     
     //--Rotas de Cadastro de demandas------------------------------------------------------------
@@ -49,5 +52,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/usuario/{id}/edit', 'UsersController@edit')->name('usuario.edit');
     Route::post('/usuario/{id}/update', 'UsersController@update')->name('usuario.update');
     
-    Route::get('/teste', 'DemandController@teste');
+ 
 });

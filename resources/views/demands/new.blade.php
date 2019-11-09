@@ -10,6 +10,19 @@
                 <div class="form-group row colorlabel">
                     <!--------->
                     <!--------->
+                   <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="NDemanda" class="col-form-label text-md-right">{{ __('Número') }}</label>
+                            <input id="N_demand" type="text" class="form-control" name="demand_id" placeholdermanda="" required>
+                            @if ($errors->has('demand_id'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('demand_id') }}</strong>
+                            </span>
+                            @endif 
+                        </div>
+                    </div>
+                    <!--------->
+                    <!--------->
                     <div class="col-md-4">
                         <label for="Type" class="col-form-label  text-md-right">{{ ('Atribuido para:') }}</label>
                         <select type="text" name="selectemail" id="name-name" class="form-control name " required><br/> 
@@ -26,7 +39,7 @@
                     </div>
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Via de solicitação') }}</label>
                             <input id="cnpj" type="text" class="form-control" name="rout_of_request" placeholder="" required>

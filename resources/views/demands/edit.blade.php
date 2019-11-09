@@ -10,6 +10,19 @@
                 <div class="form-group row">
                     <!--------->
                     <!--------->
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="NDemanda" class="col-form-label text-md-right">{{ __('Número') }}</label>
+                            <input id="N_demand" type="text" class="form-control" name="demand_id" value="{{$demand->demand_id}}" placeholdermanda="" required>
+                            @if ($errors->has('demand_id'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('demand_id') }}</strong>
+                            </span>
+                            @endif 
+                        </div>
+                    </div>
+                    <!--------->
+                    <!--------->
                     <div class="col-md-4">
                         <label for="Type" class="col-form-label text-md-right">{{ ('Atribuido para:') }}</label>
                         <select type="text" name="selectemail" id="name-name" class="form-control name " required><br/> 
@@ -25,7 +38,7 @@
                     </div>
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="cnpj" class="col-form-label text-md-right">{{ __('Via de solicitação') }}</label>
                             <input id="cnpj" type="text" class="form-control cpf_cnpj" name="rout_of_request" value="{{$demand->rout_of_request}}" required>
@@ -38,7 +51,7 @@
                     </div>
                     <!--------->
                     <!--------->
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="resolution" class="col-form-label text-md-right">{{ ('Prazo para resolução') }}</label>
                             <input id="resolution" type="date" class="form-control" name="solution_term" value="{{$demand->solution_term}}" placeholder="" required>
@@ -145,12 +158,14 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="form-group"> 
-                            @if ($demand->status == '0' && auth()->user()->type == 'user')
+                        <div class="form-group">
+                                  
+                            @if ($demand->status == '0' && auth()->user()->type == 'user') 
                                 <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>                   
                             @else
                                 <button type="submit" class="btn btn-outline-primary">Atualizar</button>
                                 <a href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
+                                <a style="margin-left:"  href="" class="btn btn-outline-danger">Finalizar</a> 
                             @endif
                             @if(auth()->user()->type == 'admin')
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">

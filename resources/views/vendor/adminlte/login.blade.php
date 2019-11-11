@@ -7,8 +7,10 @@
 @section('body')
 <div class="login-box">
     <div class="login-logo">
-        <a href="">Gestão Brasil OnLine</a>
+        <img src="https://i.ibb.co/b7wptqp/LOGO-trans-4.png"  width="150" height="150" style="color:blueviolet"  border="0" /></a>
+        <a href=""></a>
     </div>
+   
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">{{ __('adminlte::adminlte.login_message') }}</p>
@@ -57,9 +59,12 @@
             </a>
         </p>
     </div>
+    
     <!-- /.login-box-body -->
 </div><!-- /.login-box -->
+
 @stop
+
 @section('adminlte_js')
 @yield('js')
 @stop

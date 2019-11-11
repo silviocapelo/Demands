@@ -51,6 +51,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/usuario/create', 'UsersController@create')->name('usuario.create');
     Route::get('/usuario/{id}/edit', 'UsersController@edit')->name('usuario.edit');
     Route::post('/usuario/{id}/update', 'UsersController@update')->name('usuario.update');
+
+    //--Rotas de envio de email-------------------------------------------------------------------
+    Route::get('/email/{id}', 'DemandController@sendEmail')->name('email');
+
+
+
+
+
     
- 
+   
 });

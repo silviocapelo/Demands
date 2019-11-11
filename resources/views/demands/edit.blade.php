@@ -159,13 +159,15 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
+                            @if (auth()->user()->type == 'user')
+                            <a style="margin-left:"  href="{{route('email',['id'=>$demand->id])}}" class="btn btn-outline-danger">Finalizar</a>
+                            @endif
                                   
                             @if ($demand->status == '0' && auth()->user()->type == 'user') 
                                 <a style="margin-left:1%"  href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>                   
                             @else
                                 <button type="submit" class="btn btn-outline-primary">Atualizar</button>
                                 <a href="{{route('cadastro')}}" class="btn btn-outline-info">Voltar</a>
-                                <a style="margin-left:"  href="" class="btn btn-outline-danger">Finalizar</a> 
                             @endif
                             @if(auth()->user()->type == 'admin')
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">

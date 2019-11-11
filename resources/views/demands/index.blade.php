@@ -48,7 +48,7 @@
                                 </td>
                                 <td class="options">
                                     <div align="center">
-                                    <a href="{{ route('cadastro.edit',['id'=>$demand->id]) }}">
+                                    <a href="{{ route('cadastro.edit', $demand->id) }}">
                                         <em class="fa fa-fw fa-eye"></em></a></div>
                                 </td>
                             </tr>
@@ -58,4 +58,4 @@
             </div>
         </div>
     </div>
-@stop
+@stop   

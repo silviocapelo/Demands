@@ -73,8 +73,8 @@
         <nav class="navbar navbar-expand  navbarcolor static-top">
             
             <a style="color:white" class="navbar-brand mr-1" href="index.html">Gestão Brasil OnLine</a>
-            
-            <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <!-- id="sidebarToggle"   retirado do button class-->
+            <button class="btn btn-link btn-sm text-white order-1 order-sm-0"  href="#">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="navbar-nav  dropuserleft  ml-auto ml-md-8">

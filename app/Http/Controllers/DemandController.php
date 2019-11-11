@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Gate;
 //use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Auth;
+use Mail;
+use Redirect;
 
 class DemandController extends Controller
 {
@@ -124,21 +126,22 @@ class DemandController extends Controller
      
         //-----------Envio de Email---------------------------------------------------------------------
 
-    //    public function sendEmail(){
+       public function sendEmail($id){
 
-    //     Mail::send('mails.emailDemands',['curso'=>'Eloquent'],function($m, Demand $id){
-           
-    //         $demands = Demand::findOrFail($id);
-              
-    //         $m->from('gestao2019brasil@gmail.com','ADM');
-    //         $m->to('silvio.silva51@gmail.com');
+        $demands = Demand::find($id);
+        $users = User::get();
+      
+       
+        Mail::send('mails.emailDemands',['demands'=> $demands,'users'=>$users],function($m){
+        
+            $m->from('gestao2019brasil@gmail.com','ADM');
+            $m->subject('Demanda finalizada');
+            $m->to('silvio.silva51@gmail.com');
+            
+        });
+        return redirect()->route('cadastro')->with('message', 'Product updated successfully!') ;
 
-    //         return Redirect::to('/cadastro');
-
-
-    //     });
-
-    //     }
+        }
 
 
 

@@ -2,10 +2,11 @@
 @section('content')
     <div class="card mb-4">
         <div class="card-header ">   
-            <i class="fas fa-table"></i> Usuários
+            <i class="fas fa-table"></i> 
         </div>
         <div class="card-body">
             <div class="form-row">
+               
                 <div class="table-responsive ">
                     <table id="example"  class="table table-bordered table-hover datatable" style="width:100%">
                         <thead>

@@ -1,0 +1,19 @@
+[2019-11-12 11:46:30] local.ERROR: Command "cache:route" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"cache:route\" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    cache:forget
+    cache:table at F:\\PROGRAMAS\\laragon\\www\\Demands\\vendor\\symfony\\console\\Application.php:660)
+[stacktrace]
+#0 F:\\PROGRAMAS\\laragon\\www\\Demands\\vendor\\symfony\\console\\Application.php(237): Symfony\\Component\\Console\\Application->find('cache:route')
+#1 F:\\PROGRAMAS\\laragon\\www\\Demands\\vendor\\symfony\\console\\Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 F:\\PROGRAMAS\\laragon\\www\\Demands\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 F:\\PROGRAMAS\\laragon\\www\\Demands\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 F:\\PROGRAMAS\\laragon\\www\\Demands\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 

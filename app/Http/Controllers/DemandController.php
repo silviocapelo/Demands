@@ -107,9 +107,7 @@ class DemandController extends Controller
         $demands->user_id     = $request->post('selectemail');    
         $demands->description = $request->description;
         $demands->status          = $request->status;
-        }
         $demands->demand_id       = $request->demand_id;
-        $demands->outcome         = $request->outcome;
         $demands->rout_of_request = $request->rout_of_request;
         $demands->solution_term   = $request->solution_term;
         $demands->solicitante     = $request->solicitante ;
@@ -117,6 +115,8 @@ class DemandController extends Controller
         $demands->email           = $request->email;
         $demands->telefone        = $request->telefone;
         $demands->celular         = $request->celular;
+        }
+        $demands->outcome         = $request->outcome;
         $demands->save();
 
         return redirect()->route('cadastro')->with('message', 'Product updated successfully!') ;
@@ -129,17 +129,21 @@ class DemandController extends Controller
        public function sendEmail($id){
 
         $demands = Demand::find($id);
-        $users = User::get();
+        $users = User::where('type', 'admin')->get();
       
        
-        Mail::send('mails.emailDemands',['demands'=> $demands,'users'=>$users],function($m){
+        Mail::send('mails.emailDemands',['demands'=> $demands,'users'=>$users],function($m) use ($users){
         
             $m->from('gestao2019brasil@gmail.com','ADM');
             $m->subject('Demanda finalizada');
-            $m->to('silvio.silva51@gmail.com');
+
+               
+                foreach ($users as $user) {
+                    $m->to($user->email);
+                }
             
         });
-        return redirect()->route('cadastro')->with('message', 'Product updated successfully!') ;
+        return redirect()->route('cadastro') ;
 
         }
 

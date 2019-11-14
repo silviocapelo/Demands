@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Gestão Brasil OnLine',
 
     'title_prefix' => '',
 

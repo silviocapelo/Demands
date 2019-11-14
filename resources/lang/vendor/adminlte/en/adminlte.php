@@ -13,7 +13,7 @@ return [
     'sign_in'                     => 'Sign In',
     'log_out'                     => 'Sair',
     'toggle_navigation'           => 'Alternar de navegação',
-    'login_message'               => 'Faça login para iniciar sua sessão',
+    'login_message'               => 'Gestão Brasil OnLine',
     'register_message'            => 'Registrar uma nova associação',
     'password_reset_message'      => 'Resetar Senha',
     'reset_password'              => 'Resetar Senha',

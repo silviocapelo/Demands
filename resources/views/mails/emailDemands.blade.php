@@ -4,7 +4,7 @@
 <table>
   <tr>
     <td style="font-family:tahoma,arial,verdana; font-size:11px; text-align:center" valign="top">
-      <a href="https://www.SEUSITE.com.br" target="_blank"><img src="https://i.ibb.co/b7wptqp/LOGO-trans-4.png" width="150" height="150"  border="0" /></a>
+      <a href="https://www.SEUSITE.com.br" target="_blank"><img src="https://i.ibb.co/gv4d9Cr/Whats-App-Image-2019-11-13-at-18-46-42.jpg" width="150" height="150"  border="0" /></a>
     </td>
     <td style="font-family:tahoma,arial,verdana; font-size:16px; padding-left:12px">
 
